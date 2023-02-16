@@ -7,9 +7,14 @@ function getInputValue(inputId) {
 }
 
 function setElementNewAmount(elementId, value) {
-    const element = document.getElementById(elementId);
-    const newElementValue = element.innerText;
-    element.innerText = value;
+    document.getElementById(elementId).innerText = value;
+}
+
+
+function getElementValue(id) {
+    const element = document.getElementById(id).innerText;
+    const elementValue = parseFloat(element);
+    return elementValue
 }
 
 document.getElementById('calculate-button').addEventListener('click', function () {
@@ -23,7 +28,6 @@ document.getElementById('calculate-button').addEventListener('click', function (
 
     let totalExpenses = foodAmountValue + rentAmountValue + clothesAmountValue;
 
-
     const incomeAmountValue = getInputValue('income-input-filed');
     let newBalance = incomeAmountValue - totalExpenses;
 
@@ -33,4 +37,24 @@ document.getElementById('calculate-button').addEventListener('click', function (
 
     setElementNewAmount('totalExpenses', totalExpenses)
     setElementNewAmount('total-balance', newBalance)
+});
+
+
+document.getElementById('save-button').addEventListener('click', function () {
+
+    const incomeAmount = getInputValue('income-input-filed');
+    const presentAmount = getInputValue('present-input-filed');
+
+    if (isNaN(incomeAmount) || isNaN(presentAmount) || incomeAmount < presentAmount) {
+        return alert('please provide your number')
+    }
+    let savingAmount = incomeAmount * presentAmount;
+    let saveAmountValue = savingAmount / 100;
+
+    setElementNewAmount('savingAmount', saveAmountValue);
+
+    const balance = getElementValue('total-balance');
+
+    let remainingAmount = balance - saveAmountValue;
+    setElementNewAmount('remainingAmount', remainingAmount);
 })
