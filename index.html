@@ -33,6 +33,7 @@
                                     income:</p>
                             </td>
                             <td> <input
+                                    id="income-input-filed"
                                     type="text">
                             </td>
                         </tr>
@@ -47,31 +48,37 @@
                                 food:
                             </td>
                             <td><input
+                                    id="food-input-filed"
                                     type="text">
                             </td>
                         </tr>
                         <tr>
                             <td>rent: </td>
                             <td><input
+                                    id="rent-input-filed"
                                     type="text">
                             </td>
                         </tr>
                         <tr>
                             <td>clothes: </td>
                             <td><input
+                                    id="clothes-input-filed"
                                     type="text">
                             </td>
                         </tr>
                     </table>
                 </div>
                 </p>
-                <div class="calculate-btn">
+                <div id="calculate-button"
+                    class="calculate-btn">
                     <button>Calculate</button>
                 </div>
                 <h3> Total
-                    Expenses:<span>5500</span>
+                    Expenses:<span
+                        id="totalExpenses">00</span>
                 </h3>
-                <h3> Balance:<span>4500</span>
+                <h3> Balance:<span
+                        id="total-balance">00</span>
                 </h3>
                 <div class="table-box">
                     <table>
@@ -95,6 +102,7 @@
             </div>
         </section>
     </main>
+    <script src="js/calculate.js"></script>
 </body>
 
 </html>
