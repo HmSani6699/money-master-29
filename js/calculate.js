@@ -51,10 +51,12 @@ document.getElementById('save-button').addEventListener('click', function () {
     let savingAmount = incomeAmount * presentAmount;
     let saveAmountValue = savingAmount / 100;
 
-    setElementNewAmount('savingAmount', saveAmountValue);
-
     const balance = getElementValue('total-balance');
-
+    if (balance < saveAmountValue) {
+        return alert('toamr takar limit ses')
+    }
     let remainingAmount = balance - saveAmountValue;
+
+    setElementNewAmount('savingAmount', saveAmountValue);
     setElementNewAmount('remainingAmount', remainingAmount);
 })
